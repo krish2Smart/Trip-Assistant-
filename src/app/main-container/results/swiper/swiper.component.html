@@ -1,0 +1,33 @@
+<div class="swiper">
+  <div
+    ng2-carouselamos
+    [width]="1500"
+    [items]="items"
+    [$item]="item"
+    [$prev]="prev"
+    [$next]="next"
+  ></div>
+
+  <ng-template #prev>
+    <div class="arrows">
+        <img src="../../../assets/img/left_arrow.png" />
+    </div>
+  </ng-template>
+   
+  <ng-template #next>
+    <div class="arrows">
+        <img src="../../../assets/img/right_arrow.png" />
+    </div>
+  </ng-template>
+   
+  <ng-template let-item let-i="index" #item>
+    <mat-card class="items" (click)="onSelectItem(item)">
+      <img class="item-img" src="{{ item.photoUrl }}"/>
+      <span class="item-title"><b>{{item.name}}</b></span>
+    </mat-card>
+  </ng-template>
+</div>
+
+<div *ngIf="selectedItem">
+  <app-activity [selectedItem]="selectedItem"></app-activity> 
+</div>

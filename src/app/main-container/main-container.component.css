@@ -1,0 +1,23 @@
+.chat-container {
+    width: 80rem;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    min-height: 45vh;
+    box-shadow: 5px 5px 8px #797676;
+}
+
+.check {
+    width: 100%;
+    opacity: 2;
+    background-color: #FFFFFF;
+    margin: 2rem auto;
+}
+
+.search-box {
+     margin: 1.5rem 0 auto;
+}
+
+.spinner {
+    margin: 2rem auto;
+    width: 5rem;
+}

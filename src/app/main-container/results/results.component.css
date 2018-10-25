@@ -1,0 +1,10 @@
+.swiper-container {
+    margin: 0px;
+    padding: 0;
+}
+
+.swiper-title {
+    padding: 2rem;
+    font-size: 4rem;
+    color:#448AFF;
+}
