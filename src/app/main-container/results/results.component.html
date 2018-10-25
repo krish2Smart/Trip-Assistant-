@@ -1,0 +1,11 @@
+<!-- <app-description></app-description> -->
+<div class="swiper-container" *ngFor="let activity of activities">
+    <div *ngIf="isActivityAvailable(activity.listActivity)">
+        <div class="swiper-title">{{getType(activity.type)}}</div>
+        <app-swiper [items]="activity.listActivity"></app-swiper>
+    </div>
+</div>
+<div *ngIf="isHotelsAvailable()" class="swiper-container">
+    <div class="swiper-title">Hotels</div>
+    <app-swiper [items]="hotels"></app-swiper>
+</div>

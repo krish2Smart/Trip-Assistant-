@@ -1,0 +1,43 @@
+.swiper {
+    /* margin: 10px 10px; */
+    margin:0px;
+    padding: 0px;
+    background-color: #E0E0E0;
+}
+
+.arrows {
+    cursor: pointer;
+    background-color:#ffffff;
+    opacity: 0.95;
+    padding: 1rem 0rem;
+}
+
+.arrows:hover {
+    transform: scale(1.05);
+}
+
+.items {
+    cursor: pointer;
+    display: table;
+    width: 35rem;
+    height: 25rem;
+    text-align: center;
+    transform: scale(.9);
+}
+
+.items:hover {
+    transform: scale(1.05);
+}
+
+.items>img {
+    width: 20rem; 
+    height: 15rem;
+    padding: .2rem;
+    padding-bottom: 2rem;
+}
+
+.item-title {
+    font-size: 1.7rem;
+    padding: 1rem;
+    color: #448AFF;
+}

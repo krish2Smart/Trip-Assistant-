@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    outline: none;
+    /* font-family: 'Lato', sans-serif; */
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    background-color :#EEEEEE;
+}

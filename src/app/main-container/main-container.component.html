@@ -1,0 +1,13 @@
+<div class="parent" *ngIf="tripassistantServices.type=='request'"> 
+    <div class="check">
+        <div class="search-box">
+            <app-searchbox></app-searchbox>
+        </div>
+    </div>
+    <mat-card class="chat-container">
+        <app-chat-container [chats]="chats"></app-chat-container>
+    </mat-card>
+</div>
+<div *ngIf="tripassistantServices.type=='response'">
+    <app-results></app-results>
+</div>
