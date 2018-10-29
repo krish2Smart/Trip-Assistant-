@@ -1,8 +1,7 @@
 .swiper {
     /* margin: 10px 10px; */
     margin:0px;
-    padding: 0px;
-    background-color: #E0E0E0;
+    padding-bottom: 2rem;
 }
 
 .arrows {
@@ -19,25 +18,72 @@
 .items {
     cursor: pointer;
     display: table;
-    width: 35rem;
-    height: 25rem;
+    width: 30rem;
+    height: 25vh;
     text-align: center;
-    transform: scale(.9);
-}
-
-.items:hover {
-    transform: scale(1.05);
+    padding: 0;
+    border-radius: 2rem 2rem 0 0;
+    margin: 0 .5rem;
 }
 
 .items>img {
-    width: 20rem; 
-    height: 15rem;
-    padding: .2rem;
-    padding-bottom: 2rem;
+    width: 30rem; 
+    height: 30vh;
+}
+
+.item-img {
+    border-radius: 2rem 2rem 0 0;
 }
 
 .item-title {
     font-size: 1.7rem;
-    padding: 1rem;
-    color: #448AFF;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: left;
+    max-height: 5vh;
+    position: absolute;
+    bottom: 4rem;
+    left: 1rem;
+}
+
+.item-rating {
+    /* padding: 1rem; */
+    text-align: left;
+}
+
+.modal {
+    display: none;
+    z-index: 1;
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto;
+    background-color: #000000;
+    background-color: #00000066;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #000000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    height: 2rem;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }

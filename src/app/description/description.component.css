@@ -3,8 +3,9 @@
 }
 
 .carousel {
-    background: #448AFF;
+    background:#6BBDED;
     text-align: center;
+    height: 20vh;
 }
 
 .carousel.top-to-bottom .item {
@@ -20,11 +21,11 @@
 }
 
 .carousel.top-to-bottom .next {
-   top: 400px;
+   top: 20vh;
 }
 
 .carousel.top-to-bottom .prev {
-   top: -400px;
+   top: -20vh;
 }
 
 .carousel.top-to-bottom .item {
@@ -37,4 +38,9 @@
     font-size:5em;
     height:180px;
     font-family: 'Fjalla One';
+}
+
+.carousel-indicators {
+    margin-top: 1vh;
+    margin-bottom: 0;
 }

@@ -3,3 +3,9 @@
     color:#3E92D2;
     margin-top: 0.5rem;
 }
+
+.mic-btn {
+    background-color: #FFFFFF;
+    outline: none;
+    border: 0;
+}

@@ -1,10 +1,10 @@
 
-<div class = "chat">
+<div class = "chat" #scrollMe [scrollTop]="scrollMe.scrollHeight">
     <div *ngFor = "let chat of chats">
         <div [ngClass] = "{
             'user': chat.sender == 'user',
-            'assistant' : chat.sender == 'assistant'}">
-            <div class = "message-box" >{{chat.message}}</div>
+            'assistant' : chat.sender == 'assistant'}" id="id1">
+            <div class = "message-box" ><b>{{chat.message}}</b></div>
         </div>
     </div>
     <div class="loading" *ngIf="tripassistantService.getShowSpinner()">

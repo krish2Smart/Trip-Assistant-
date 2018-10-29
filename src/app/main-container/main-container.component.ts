@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatsService } from './chats.service';
-import { TripAssistantService } from '../tripassistant.service';
+import { TripAssistantService } from '../services/tripassistant.service';
 
 @Component({
   selector: 'app-main-container',
@@ -8,6 +8,7 @@ import { TripAssistantService } from '../tripassistant.service';
   styleUrls: ['./main-container.component.css'],
   providers: [ChatsService]
 })
+
 export class MainContainerComponent implements OnInit {
   chats: {
     sender: string,

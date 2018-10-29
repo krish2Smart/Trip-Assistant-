@@ -1,11 +1,27 @@
-<!-- <app-description></app-description> -->
 <div class="swiper-container" *ngFor="let activity of activities">
     <div *ngIf="isActivityAvailable(activity.listActivity)">
+        <app-speech-action-command 
+            [type]="getType(activity.type)"
+            (onChangelistenType)="onChangeListenSpeechType($event)">
+        </app-speech-action-command>
         <div class="swiper-title">{{getType(activity.type)}}</div>
-        <app-swiper [items]="activity.listActivity"></app-swiper>
+        <app-swiper 
+            [listenSpeechTypeChanged]="lsitenSpeechTypeChanged"
+            [speechActionCommand]="getType(activity.type)" 
+            [items]="activity.listActivity">
+        </app-swiper>
     </div>
 </div>
 <div *ngIf="isHotelsAvailable()" class="swiper-container">
+    <app-speech-action-command 
+        [type]="getType(activity.type)"
+        (onChangelistenType)="onChangeListenSpeechType($event)">
+    </app-speech-action-command>
     <div class="swiper-title">Hotels</div>
-    <app-swiper [items]="hotels"></app-swiper>
+    <app-swiper 
+        [listenSpeechTypeChanged]="lsitenSpeechTypeChanged"
+        [speechActionCommand]="'hotels'"
+        [items]="hotels">
+    </app-swiper>
 </div>
+<app-mic *ngIf="speechRecogniser.isSpeechRecognitionAvailable"></app-mic>

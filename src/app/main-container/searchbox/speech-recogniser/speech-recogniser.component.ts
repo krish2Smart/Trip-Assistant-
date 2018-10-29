@@ -43,5 +43,4 @@ export class SpeechRecogniserComponent implements OnInit {
   recordStop(): void {
     this.subscription.unsubscribe();
   }
-  
 }
