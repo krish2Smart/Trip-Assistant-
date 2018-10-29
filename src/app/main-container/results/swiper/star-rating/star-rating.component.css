@@ -1,0 +1,13 @@
+.rate {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.star-rating {
+    float: left;
+}
+
+mat-icon {
+    color: #FFBF00;
+}

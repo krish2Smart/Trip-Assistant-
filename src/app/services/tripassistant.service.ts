@@ -1,5 +1,4 @@
-import { Activities } from "./main-container/results/swiper/activity/activities.model";
-import { Activity } from "./main-container/results/swiper/activity/activity.model";
+import { Activities } from "../main-container/results/swiper/activity/activities.model";
 
 export class TripAssistantService {
   private activities: Activities[];

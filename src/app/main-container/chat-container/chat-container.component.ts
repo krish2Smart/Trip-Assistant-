@@ -1,6 +1,6 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ChatsService } from '../chats.service';
-import { TripAssistantService } from '../../tripassistant.service';
+import { TripAssistantService } from '../../services/tripassistant.service';
 
 @Component({
   selector: 'app-chat-container',
@@ -16,10 +16,11 @@ export class ChatContainerComponent implements OnInit {
   }[];
 
   constructor(
-    private chatsService: ChatsService,
+    private chatsService: ChatsService, 
     private tripassistantService: TripAssistantService
   ) { }
 
   ngOnInit() {
   }
+  
 }
