@@ -1,5 +1,4 @@
 .swiper {
-    /* margin: 10px 10px; */
     margin:0px;
     padding-bottom: 2rem;
 }
@@ -36,54 +35,17 @@
 }
 
 .item-title {
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 16px #FFFFFF;
     font-size: 1.7rem;
     font-weight: bold;
     color: #FFFFFF;
     text-align: left;
-    max-height: 5vh;
     position: absolute;
     bottom: 4rem;
     left: 1rem;
 }
 
 .item-rating {
-    /* padding: 1rem; */
     text-align: left;
-}
-
-.modal {
-    display: none;
-    z-index: 1;
-    padding-top: 100px; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto;
-    background-color: #000000;
-    background-color: #00000066;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-/* The Close Button */
-.close {
-    color: #000000;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    height: 2rem;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
 }

@@ -1,10 +1,10 @@
 import { NgModule } from "@angular/core";
-import { SpeechRecogniserComponent } from "./speech-recogniser/speech-recogniser.component";
-import { SearchboxComponent } from "./searchbox.component";
-import { SpeechModule } from "./SpeechRecognition";
 import { MatIconModule } from "@angular/material";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
+
+import { SpeechRecogniserComponent } from "./speech-recogniser/speech-recogniser.component";
+import { SearchboxComponent } from "./searchbox.component";
 
 @NgModule({
     declarations: [
@@ -13,7 +13,6 @@ import { FormsModule } from "@angular/forms";
     ],
     imports: [
         CommonModule,
-        SpeechModule,
         MatIconModule,
         FormsModule
     ],

@@ -1,4 +1,11 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { 
+  Component, 
+  OnInit, 
+  Input, 
+  ViewChild, 
+  ElementRef 
+} from '@angular/core';
+
 import { SpeechRecogniserService } from 'src/app/services/speech-recogniser.service';
 
 @Component({
@@ -7,8 +14,8 @@ import { SpeechRecogniserService } from 'src/app/services/speech-recogniser.serv
   styleUrls: ['./speech-action.component.css']
 })
 export class SpeechActionComponent implements OnInit {
-  @Output('changeSelectedItem') speechActionItem =  new EventEmitter<any>();
   @Input() item: any;
+  @ViewChild("itemClick") itemClick: ElementRef;
 
   constructor(private speechRecogniser: SpeechRecogniserService) { }
 
@@ -17,10 +24,8 @@ export class SpeechActionComponent implements OnInit {
       .subscribe(
         (speechCommand: string) => {
           console.log(speechCommand)
-          if(this.item.name.toLowerCase() === speechCommand) {
-            this.speechActionItem.emit(this.item);
-            console.log(this.item);
-          }
+          if(this.item.name.toLowerCase() === speechCommand)
+            this.itemClick.nativeElement.click();
         }
       )
   }

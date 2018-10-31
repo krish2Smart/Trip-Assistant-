@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TripAssistantService } from './services/tripassistant.service';
 
 @Component({
@@ -8,15 +8,8 @@ import { TripAssistantService } from './services/tripassistant.service';
 })
 
 
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'TripAssistant';
 
-  constructor(private tripassistantServices: TripAssistantService) {
-  //   var myDiv = document.getElementsByClassName("")[0];
-  //  myDiv.scrollTop = myDiv.scrollHeight;
-  }
-
-  ngOnInit() {
-    // console.log("rewr"+this.tripassistantServices.getType());
-  }
+  constructor(private tripassistantServices: TripAssistantService) { }
 }

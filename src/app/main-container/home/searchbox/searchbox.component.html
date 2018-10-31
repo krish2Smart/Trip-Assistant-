@@ -1,0 +1,22 @@
+<div [ngClass]="{
+        'search-box-container': !(input == ' '|| input == ''),
+        'new-search-box':input == ' '|| input == ''
+    }">
+    <input 
+        type="text" 
+        class="input-field"
+        #voiceInput
+        [(ngModel)]="input" 
+        placeholder="Type Your Request Here..."
+        (keyup.enter) = "getResults()"/>
+    <app-speech-recogniser 
+        *ngIf = "SpeechRecogniser.isSpeechRecognitionAvailable"
+        (onChangeInput) = "onChangeInput($event)">
+    </app-speech-recogniser>
+        <mat-icon 
+            class = "send" 
+            *ngIf = "!(input == ' ' || input == '')" 
+            (click) = "getResults()">
+            send 
+        </mat-icon>
+</div>

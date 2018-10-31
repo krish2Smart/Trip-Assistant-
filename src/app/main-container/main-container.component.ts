@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatsService } from './chats.service';
+import { ChatsService } from '../services/chats.service';
 import { TripAssistantService } from '../services/tripassistant.service';
 
 @Component({
@@ -10,25 +10,12 @@ import { TripAssistantService } from '../services/tripassistant.service';
 })
 
 export class MainContainerComponent implements OnInit {
-  chats: {
-    sender: string,
-    message: string
-  }[] = [];
-  type: string;
-  request: string;
-  response: string;
-  responseQuery: string;
   
   constructor( 
     private chatsServices: ChatsService, 
-    private tripassistantServices: TripAssistantService
+    public tripassistantServices: TripAssistantService
   ) { }
 
   ngOnInit() {
-    this.chats = this.chatsServices.chats;
-    this.type = this.tripassistantServices.getType();
-    this.request = this.tripassistantServices.getRequest();
-    this.response = this.tripassistantServices.getResponse();
-    this.responseQuery = this.tripassistantServices.getResponseQuery();
   }
 }

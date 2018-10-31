@@ -1,13 +1,2 @@
-<div class = "parent" *ngIf = "tripassistantServices.type == 'request'"> 
-    <div class = "check">
-        <div class = "search-box">
-            <app-searchbox></app-searchbox>
-        </div>
-    </div>
-    <div class = "chat-container">
-        <app-chat-container [chats] = "chats"></app-chat-container>
-    </div>
-</div>
-<div *ngIf = "tripassistantServices.type == 'response'">
-    <app-results></app-results>
-</div>
+<app-home *ngIf="tripassistantServices.getType() == 'request'"></app-home>
+<app-results *ngIf="tripassistantServices.getType() == 'response'"></app-results>

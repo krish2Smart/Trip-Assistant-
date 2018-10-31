@@ -1,3 +1,9 @@
-<p>
-  mic works!
-</p>
+<div class="voice-search-box">
+  <div class="mic" (click)="toggleMic()">
+    <img src="../../../../assets/img/microphone.png"/>
+  </div>
+  <div #display class="display">
+    <img src="../../../../assets/img/loading_lg.gif"/>
+    <input #transcriptsResult type="text"/>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+.mic {
+    display: block;
+    position: fixed;
+    top: 6rem;
+    right: 2rem;
+    cursor: pointer;
+}
+
+.display {
+    cursor: pointer;
+    display: none;
+    width: 40rem;
+    height: 10rem;
+    position: fixed;
+    top: 12rem;
+    right: 4rem;
+    background: #6b6d8adc;
+    padding: 1rem;
+    margin: 1rem;
+    color: #FFFFFF;
+    border: 0.1rem solid #3E92D2;
+    box-shadow: 5px 5px 12px #888888;
+    border-radius: 1rem;
+}
+
+.display>img {
+    display: inline;
+}
+
+.display>input {
+    display: inline-block;
+    width: 70%;
+    background: transparent; 
+    border: 0;
+}

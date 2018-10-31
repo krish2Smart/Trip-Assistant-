@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ChatsService } from '../chats.service';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TripAssistantService } from '../../services/tripassistant.service';
+
+import { ChatsService } from '../../../services/chats.service';
+import { TripAssistantService } from '../../../services/tripassistant.service';
+import { SpeechRecogniserService } from 'src/app/services/speech-recogniser.service';
 
 @Component({
   selector: 'app-searchbox',
@@ -10,19 +12,24 @@ import { TripAssistantService } from '../../services/tripassistant.service';
   providers: []
 })
 export class SearchboxComponent implements OnInit {
-  //@Input() usermessage:{sent:boolean,context:string};
   input: string = '';
   final: string = '';
   city: string;
   cityResults: any;
-  microphone: boolean = window['SpeechRecognition'] !== undefined || window['webkitSpeechRecognition'] !== undefined;
   response: any;
-  constructor(private chatsService: ChatsService, private http: HttpClient, private tripassistantService: TripAssistantService) { }
+  @ViewChild('voiceInput') transcriptsResultElement: ElementRef;
+
+  constructor(
+    private chatsService: ChatsService, 
+    private http: HttpClient, 
+    private tripassistantService: TripAssistantService,
+    private SpeechRecogniser: SpeechRecogniserService
+  ) { }
 
   ngOnInit() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {      
-        let observe = this.http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude + '&key=AIzaSyAGsJD6XqB9zheEOUoYFpOCGuPuDlUWhOc');
+        let observe = this.http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude + '&key=AIzaSyA9v-ByUMauD8TazXdViq_f7RF-EHru86A');
         observe.subscribe((response)=> {
             this.cityResults = response;
             for ( let indexer1 = 0; indexer1 < this.cityResults.results[1].address_components.length; indexer1++) {
@@ -38,18 +45,19 @@ export class SearchboxComponent implements OnInit {
     }
   }
 
-  onChangeInput(message: string) {
+  onChangeInput(message: string): void {
+    this.transcriptsResultElement.nativeElement.value = message;
     this.input = message;
-    
   }
 
-  check() {
+  getResults(): void {
     this.final = this.input;
     this.input = '';
     if(this.final!='')
     {
         this.chatsService.addChat('user', this.final);
         this.tripassistantService.setShowSpinner(true);
+        console.log('http://tripassistant-search-engine.ap-south-1.elasticbeanstalk.com/api/SearchResults?input=' + this.tripassistantService.getRequest() + ' ' + this.final + '&location=' + this.city);
         let observable = this.http.get('http://tripassistant-search-engine.ap-south-1.elasticbeanstalk.com/api/SearchResults?input=' + this.tripassistantService.getRequest() + ' ' + this.final + '&location=' + this.city); 
         observable.subscribe((response: Response) => {
             this.tripassistantService.setShowSpinner(false);

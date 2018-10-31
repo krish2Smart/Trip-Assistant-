@@ -1,4 +1,9 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { 
+  Component, 
+  OnInit, 
+  EventEmitter 
+} from '@angular/core';
+
 import { Activities } from './swiper/activity/activities.model';
 import { TripAssistantService } from '../../services/tripassistant.service';
 import { SpeechRecogniserService } from 'src/app/services/speech-recogniser.service';
@@ -8,7 +13,6 @@ import { SpeechRecogniserService } from 'src/app/services/speech-recogniser.serv
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css']
 })
-
 export class ResultsComponent implements OnInit {
   activities: Activities[];
   hotels: {}[];
@@ -17,7 +21,7 @@ export class ResultsComponent implements OnInit {
 
   constructor(
     private activityService: TripAssistantService,
-    private speechRecogniser: SpeechRecogniserService
+    public speechRecogniser: SpeechRecogniserService
   ) { }
 
   ngOnInit() {
@@ -25,15 +29,16 @@ export class ResultsComponent implements OnInit {
     this.hotels = this.activityService.getHotels();
   }
 
-  isHotelsAvailable() {
+  isHotelsAvailable(): boolean {
     return this.hotels.length !== 0;
   }
 
-  isActivityAvailable(list) {
+  isActivityAvailable(list): boolean {
     return list.length !== 0;
   }
 
-  onChangeListenSpeechType(listenSpeechType: string) {
+  onChangeListenSpeechType(listenSpeechType: string): void {
+    console.log("chenged = "+ listenSpeechType);
     this.listenSpeechType = listenSpeechType;
     this.lsitenSpeechTypeChanged.emit(listenSpeechType);
   }
@@ -72,5 +77,4 @@ export class ResultsComponent implements OnInit {
         return type;
     }
   }
-
 }

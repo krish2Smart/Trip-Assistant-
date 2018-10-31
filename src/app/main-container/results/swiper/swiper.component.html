@@ -1,47 +1,49 @@
-<div class = "swiper">
+<div class="swiper">
   <div
     ng2-carouselamos
-    [width] = "1200"
-    [items] = "items"
-    [$item] = "item"
-    [$prev] = "prev"
-    [$next] = "next">
+    [width]="1200"
+    [items]="items"
+    [$item]="item"
+    [$prev]="prev"
+    [$next]="next">
   </div>
 
   <ng-template #prev>
-    <div class = "arrows">
-        <img src = "../../../assets/img/left_arrow.png"/>
+    <div class="arrows">
+        <img src="../../../assets/img/left_arrow.png"/>
     </div>
   </ng-template>
-   
+  
   <ng-template #next>
-    <div class = "arrows">
-        <img src = "../../../assets/img/right_arrow.png"/>
+    <div class="arrows">
+        <img src="../../../assets/img/right_arrow.png"/>
     </div>
   </ng-template>
 
-  <ng-template let-item let-i = "index" #item>
-    <mat-card class = "items" (click) = "onSelectItem(item)">
-      <img class = "item-img" src="{{ item.photoUrl }}"/>
+  <ng-template let-item let-i="index" #item>
+    <mat-card class="items" (click)="onSelectItem(item)">
+      <img
+        *ngIf="item.photoUrl !== null;else staticImage" 
+        class="item-img" 
+        src="{{ item.photoUrl }}"/>
+      <ng-template #staticImage>
+        <img
+          class="item-img"
+          src="../../../../assets/img/static_img_{{getRandomImg()}}.jpg"/>
+      </ng-template>
       <div class = "item-title">{{ item.name }}</div>
       <app-star-rating [rating]="item.rating"></app-star-rating>
+      <app-speech-action
+        *ngIf="isSpeechActionCommand"
+        [item]="item">
+      </app-speech-action>
     </mat-card>
-    
-    <app-speech-action
-      *ngIf="isSpeechActionCommand"
-      [item]="item"
-      (changeSelectedItem)="onSelectItem($event)">
-    </app-speech-action>
   </ng-template>
 </div>
 
-<!-- <div class = "modal" id = "myModal" *ngIf = "selectedItem">
-    <div class = "modal-content">X
-      <div class = "close" (click)="closepage()">x</div>
-      <app-activity [selectedItem] = "selectedItem"></app-activity>
-    </div>
-</div> -->
-
 <div *ngIf="selectedItem">
-  <app-activity [selectedItem]="selectedItem"></app-activity>
+  <app-activity 
+    (onCloseItem)="onCloseItem($event)"  
+    [selectedItem]="selectedItem">
+  </app-activity>
 </div>

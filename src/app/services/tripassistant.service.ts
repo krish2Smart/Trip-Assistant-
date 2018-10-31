@@ -1,5 +1,8 @@
 import { Activities } from "../main-container/results/swiper/activity/activities.model";
+import { Injectable } from "@angular/core";
 
+
+@Injectable()
 export class TripAssistantService {
   private activities: Activities[];
   private hotels: {}[];

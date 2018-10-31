@@ -1,0 +1,36 @@
+.parent {
+    background-image: url(../../../assets/img/back-img3.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 75vh;
+    background-position-y: 5vh;
+}
+
+.chat-container {
+    margin: 0 auto;
+    background-color: #d5e0e700;
+    height: 60vh;
+    width: 56vw;
+    padding: 0;
+    border: 0.1rem solid #3E92D2;
+    box-shadow: 0 1px 1px #3E92D2, 0 1px 1px #3E92D2;
+    border-radius: 3rem;
+}
+
+.search-container {
+    width: 55vw;
+    opacity: 2;
+    background-color: #d5e0e752;
+    margin: 0 auto;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.search-box {
+     margin: 0 auto;
+}
+
+.spinner {
+    margin: 2rem auto;
+    width: 5rem;
+}

@@ -1,4 +1,56 @@
 <mat-card>
-  <img mat-card-lg-image src="{{activity.photoUrl}}">
-  <mat-card-title>{{ activity.name }}</mat-card-title>
+  <div class="activity-details">
+    <div class="img">
+      <img class="activity-img" src="{{activity.photoUrl}}"/>
+      <mat-card-title>{{ activity.name }}</mat-card-title>
+    </div>
+    <div class="contents">
+      <div *ngIf="activity.address!=null">
+        <mat-icon>location_on</mat-icon>
+        {{activity.address}}
+      </div>
+      <div *ngIf="activity.phone!=null">
+        <mat-icon>phone</mat-icon>
+        {{activity.phone}}
+      </div>
+      <div *ngIf="activity.website!=null">
+        <mat-icon>public</mat-icon>
+        {{activity.website}}
+      </div>
+      <div *ngIf="activity.openingHours!=null" class="opening">
+        <mat-icon>access_time</mat-icon>
+        {{activity.currentOpening}}
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Open Timings
+              </mat-panel-title>
+              <mat-panel-description>
+                Timing on all Days
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>{{activity.openingHours[0]}}</p>
+            <p>{{activity.openingHours[1]}}</p>
+            <p>{{activity.openingHours[2]}}</p>
+            <p>{{activity.openingHours[3]}}</p>
+            <p>{{activity.openingHours[4]}}</p>
+            <p>{{activity.openingHours[5]}}</p>
+            <p>{{activity.openingHours[6]}}</p>  
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+    <div class="close">
+      <button class="close-btn" (click)="close()">x</button>
+    </div>  
+  </div>
+  <agm-map 
+    [latitude]="activity.lattitude" 
+    [longitude]="activity.longitude">
+    <agm-marker 
+      [latitude]="activity.lattitude" 
+      [longitude]="activity.longitude">
+    </agm-marker>
+  </agm-map>
 </mat-card>

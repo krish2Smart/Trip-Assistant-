@@ -5,6 +5,11 @@ export class Activity {
         public placeId: string, 
         public rating: number,
         public lattitude: number,
-        public longitude: number
+        public longitude: number,
+        public address: string,
+        public website: string,
+        public phone: number,
+        public openingHours:any,
+        public currentOpening
     ) {}
 }

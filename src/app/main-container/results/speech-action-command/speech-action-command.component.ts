@@ -1,4 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { 
+  Component, 
+  OnInit, 
+  Input, 
+  Output, 
+  EventEmitter, 
+  ViewChild, 
+  ElementRef 
+} from '@angular/core';
+
 import { SpeechRecogniserService } from 'src/app/services/speech-recogniser.service';
 
 @Component({
@@ -9,7 +18,7 @@ import { SpeechRecogniserService } from 'src/app/services/speech-recogniser.serv
 export class SpeechActionCommandComponent implements OnInit {
   @Input('type') command: string;
   @Output('onChangelistenType') changeListenType = new EventEmitter<string>();
-  @ViewChild("scr") MyProp: ElementRef;
+  @ViewChild("scroll") MyProp: ElementRef;
 
   constructor(private speechRecogniser: SpeechRecogniserService) { }
 
@@ -19,12 +28,16 @@ export class SpeechActionCommandComponent implements OnInit {
         (speechCommand) => {
           console.log(speechCommand);
           if(this.command.toLowerCase() === speechCommand) {
-            this.changeListenType.emit(this.command);
             this.MyProp.nativeElement.scrollIntoView({ behavior: "smooth", block: "start" });
+            this.MyProp.nativeElement.click();
           }
             
         }
       )
+  }
+
+  onClickListenType(): void {
+    this.changeListenType.emit(this.command);
   }
 
 }
