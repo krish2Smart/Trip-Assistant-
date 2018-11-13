@@ -31,7 +31,6 @@ export class SpeechActionCommandComponent implements OnInit {
             this.MyProp.nativeElement.scrollIntoView({ behavior: "smooth", block: "start" });
             this.MyProp.nativeElement.click();
           }
-            
         }
       )
   }

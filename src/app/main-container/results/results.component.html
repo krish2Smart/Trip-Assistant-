@@ -14,7 +14,7 @@
 </div>
 <div *ngIf="isHotelsAvailable()" class="swiper-container">
     <app-speech-action-command 
-        [type]="getType(activity.type)"
+        [type]="'hotels'"
         (onChangelistenType)="onChangeListenSpeechType($event)">
     </app-speech-action-command>
     <div class="swiper-title">Hotels</div>

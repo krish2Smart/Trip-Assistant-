@@ -35,8 +35,9 @@ export class SearchboxComponent implements OnInit {
             for ( let indexer1 = 0; indexer1 < this.cityResults.results[1].address_components.length; indexer1++) {
                 for ( let indexer2 = 0; indexer2 < this.cityResults.results[1].address_components[indexer1].types.length; indexer2++)
                     if ( this.cityResults.results[1].address_components[indexer1].types[indexer2] == 'locality')
-                    this.city = this.cityResults.results[1].address_components[indexer1].long_name;
+                      this.city = this.cityResults.results[1].address_components[indexer1].long_name;
             }
+            
         });
       });
     }
@@ -57,8 +58,8 @@ export class SearchboxComponent implements OnInit {
     {
         this.chatsService.addChat('user', this.final);
         this.tripassistantService.setShowSpinner(true);
-        console.log('http://tripassistant-search-engine.ap-south-1.elasticbeanstalk.com/api/SearchResults?input=' + this.tripassistantService.getRequest() + ' ' + this.final + '&location=' + this.city);
-        let observable = this.http.get('http://tripassistant-search-engine.ap-south-1.elasticbeanstalk.com/api/SearchResults?input=' + this.tripassistantService.getRequest() + ' ' + this.final + '&location=' + this.city); 
+        console.log('http://tripassistant-search-engine.ap-south-1.elasticbeanstalk.com/api/SearchResults?input=' + this.tripassistantService.getRequest() + ' ' + this.final + '&location=' + 'pune');
+        let observable = this.http.get('http://172.16.14.216:50175/api/SearchResults?input=' + this.tripassistantService.getRequest() + ' ' + this.final + '&location=' + 'pune'); 
         observable.subscribe((response: Response) => {
             this.tripassistantService.setShowSpinner(false);
             this.response = response;

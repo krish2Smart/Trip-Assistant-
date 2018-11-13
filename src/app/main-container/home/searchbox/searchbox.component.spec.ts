@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchboxComponent } from './searchbox.component';
-import { ChatsService } from '../chats.services';
-import { TripAssistantService } from '../../services/tripassistant.service';
+import { ChatsService } from '../../../services/chats.service';
+import { TripAssistantService } from '../../../services/tripassistant.service';
 import { HttpClient } from '@angular/common/http';
 
 describe('SearchboxComponent', () => {

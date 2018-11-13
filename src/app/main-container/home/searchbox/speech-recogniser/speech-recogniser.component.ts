@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 
@@ -14,7 +14,8 @@ export class SpeechRecogniserComponent implements OnInit {
   @Output('onChangeInput') inputChanged = new EventEmitter<string>();
 
   constructor(
-    private speechRecogniser: SpeechRecogniserService  
+    private speechRecogniser: SpeechRecogniserService ,
+    private micElement: ElementRef 
   ) { }
 
   ngOnInit() {
@@ -27,10 +28,14 @@ export class SpeechRecogniserComponent implements OnInit {
   }
   
   toggleVoiceRecognition(): void {
-    if(this.micOn)
-    this.speechRecogniser.start();
-    else  
-    this.speechRecogniser.stop();
+    if(!this.micOn) {
+      this.micElement.nativeElement.querySelector('.mic').style.color = "#FF0000";
+      this.speechRecogniser.start();
+    }
+    else  {
+      this.micElement.nativeElement.querySelector('.mic').style.color = "#3E92D2";
+      this.speechRecogniser.stop();
+    }
     this.micOn = !this.micOn;
   }
 

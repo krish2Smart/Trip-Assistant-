@@ -21,7 +21,7 @@
 }
 
 .carousel.top-to-bottom .next {
-   top: 20vh;
+   top: -20vh;
 }
 
 .carousel.top-to-bottom .prev {

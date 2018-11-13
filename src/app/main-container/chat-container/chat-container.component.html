@@ -1,0 +1,16 @@
+
+<div class = "chat" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+    <div *ngFor = "let chat of chats">
+        <div [ngClass] = "{
+            'user': chat.sender == 'user',
+            'assistant' : chat.sender == 'assistant'}" id="id1">
+            <div class = "message-box" ><b>{{chat.message}}</b></div>
+        </div>
+    </div>
+    <div class="loading" *ngIf="tripassistantService.getShowSpinner()">
+        <div class="message-box">
+            Planning
+            <img src="../../../assets/img/loading.gif"/>
+        </div>
+    </div>
+</div>
