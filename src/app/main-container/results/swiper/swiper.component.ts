@@ -16,6 +16,7 @@ export class SwiperComponent implements OnInit {
   isSpeechActionCommand: boolean = false;
   response: any;
   date: Date;
+  weather: any;
 
   constructor(private http: HttpClient) { }
 
@@ -28,7 +29,7 @@ export class SwiperComponent implements OnInit {
   }
 
   onSelectItem(item: any) {
-    let observable = this.http.get('http://tripassistant-search-engine.ap-south-1.elasticbeanstalk.com/api/PlaceDetails?placeId='+item.placeId); 
+    let observable = this.http.get('http://172.16.14.35:50175/api/PlaceDetails?placeId='+item.placeId); 
     observable.subscribe((response: Response) => {
       this.response = response;
       item.address = this.response.address;
@@ -53,9 +54,20 @@ export class SwiperComponent implements OnInit {
           "Sunday: 10:00 AM – 8:00 PM"
         ];
       }
-      item.currentOpening = item.openingHours[this.date.getDay()];
+      item.currentOpening = item.openingHours[this.date.getDay()-1];
     })
-    console.log(item);
+    let observe = this.http.get('http://api.openweathermap.org/data/2.5/weather?lat='+item.lattitude+'&lon='+item.longitude+'&appid=a0b99798362164e1eac216fe4ef534f1'); 
+    observe.subscribe((response: Response) => {
+      this.response = response;
+      item.weather = {
+        temperature: (this.response.main.temp-273.15).toFixed(2),
+        wind: this.response.wind.speed,
+        humidity: this.response.main.humidity,
+        description: this.response.weather[0].description,
+        icon: 'http://openweathermap.org/img/w/'+this.response.weather[0].icon+'.png'
+      };
+      console.log("hellooo",item.weather);
+    });
     this.selectedItem = item;
   }
   

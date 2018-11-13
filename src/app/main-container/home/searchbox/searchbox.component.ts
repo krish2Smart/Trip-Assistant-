@@ -58,8 +58,8 @@ export class SearchboxComponent implements OnInit {
     {
         this.chatsService.addChat('user', this.final);
         this.tripassistantService.setShowSpinner(true);
-        console.log('http://tripassistant-search-engine.ap-south-1.elasticbeanstalk.com/api/SearchResults?input=' + this.tripassistantService.getRequest() + ' ' + this.final + '&location=' + 'pune');
-        let observable = this.http.get('http://172.16.14.216:50175/api/SearchResults?input=' + this.tripassistantService.getRequest() + ' ' + this.final + '&location=' + 'pune'); 
+        console.log('http://tripassistant-search-engine.ap-south-1.elasticbeanstalk.com/api/SearchResults?input=' + this.tripassistantService.getRequest() + ' ' + this.final + '&location=' + this.city);
+        let observable = this.http.get('http://172.16.14.35:50175/api/SearchResults?input=' + this.tripassistantService.getRequest() + ' ' + this.final + '&location=' + this.city); 
         observable.subscribe((response: Response) => {
             this.tripassistantService.setShowSpinner(false);
             this.response = response;

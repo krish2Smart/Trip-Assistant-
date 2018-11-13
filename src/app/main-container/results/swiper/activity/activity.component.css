@@ -1,26 +1,21 @@
 agm-map {
-    height: 300px;
-}
-
-.opening {
+    height: 25rem;
+    width: 80rem;
 }
 
 .activity-img {
-    height: 20rem;
-    width: 30rem;
+    height: 25rem;
+    width: 40rem;
 }
 
 .close-btn {
     width: 2rem;
-    height: 2rem;
+    height: 2.5rem;
     float: right;
 }
 
 .activity-details {
     display: flex;
     flex-direction: row;
-}
-
-.contents {
-
+    justify-content: space-between;
 }
