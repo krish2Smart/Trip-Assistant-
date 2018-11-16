@@ -17,7 +17,10 @@ export class SpeechActionComponent implements OnInit {
   @Input() item: any;
   @ViewChild("itemClick") itemClick: ElementRef;
 
-  constructor(private speechRecogniser: SpeechRecogniserService) { }
+  constructor(
+    private speechRecogniser: SpeechRecogniserService
+    
+  ) { }
 
   ngOnInit() {
     this.speechRecogniser.transcriptChanged

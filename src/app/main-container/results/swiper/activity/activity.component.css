@@ -1,21 +1,56 @@
 agm-map {
-    height: 25rem;
-    width: 80rem;
+    height: 35vh;
+    width: 60vw;
+    margin: 0 2rem;
 }
 
 .activity-img {
-    height: 25rem;
-    width: 40rem;
+    height: 35vh;
+    width: 25vw;
 }
 
 .close-btn {
     width: 2rem;
     height: 2.5rem;
     float: right;
+    margin: 0 2rem;
+    color: #FFFFFF;
+    background-color: black;
+	border: none;
+	padding: 0;
+	cursor: pointer;
 }
 
 .activity-details {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
+}
+
+.activity-container {
+    /* background-image: url(../../../../../assets/img/im6.jpg);
+    background-size: cover;
+    background-repeat: no-repeat; */
+    background-color: snow;
+    margin: 2rem;
+}
+
+.contents {
+    margin: 1rem 2rem;
+}
+
+.title {
+    font-weight: bold;
+    width: 80rem;
+}
+
+.sub-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.opening {
+    width: 40vw;
 }

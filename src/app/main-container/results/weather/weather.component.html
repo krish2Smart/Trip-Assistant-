@@ -1,0 +1,16 @@
+<div>
+  <mat-card>
+    <h1>{{city.toUpperCase()}}</h1>
+    <span>{{date.toString().substring(0,10)}}</span>
+    <img src="{{weather.icon}}">
+    <span>{{weather.temperature}}°C</span>
+  </mat-card>
+  <mat-card>
+    <br>
+    Wind: {{weather.wind}} Km/h
+    <br>
+    Humidity: {{weather.humidity}}%
+    <br>
+    {{convertTitlecasePipe(weather.description)}}
+  </mat-card>
+</div>

@@ -4,7 +4,10 @@
     }">
     <input 
         type="text" 
-        class="input-field"
+        [ngClass]="{
+            'new-input-field': !(input == ' '|| input == ''),
+            'input-field': input == ' '|| input ==''
+        }"
         #voiceInput
         [(ngModel)]="input" 
         placeholder="Type Your Request Here..."
@@ -13,7 +16,7 @@
         *ngIf = "SpeechRecogniser.isSpeechRecognitionAvailable"
         (onChangeInput) = "onChangeInput($event)">
     </app-speech-recogniser>
-        <mat-icon 
+        <mat-icon
             class = "send" 
             *ngIf = "!(input == ' ' || input == '')" 
             (click) = "getResults()">

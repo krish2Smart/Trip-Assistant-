@@ -16,7 +16,7 @@ import { SpeechRecogniserService } from 'src/app/services/speech-recogniser.serv
 export class ResultsComponent implements OnInit {
   activities: Activities[];
   hotels: {}[];
-  listenSpeechType: string = 'attractions';
+  listenSpeechType: string;
   lsitenSpeechTypeChanged = new EventEmitter<string>();
 
   constructor(
@@ -38,7 +38,6 @@ export class ResultsComponent implements OnInit {
   }
 
   onChangeListenSpeechType(listenSpeechType: string): void {
-    console.log("chenged = "+ listenSpeechType);
     this.listenSpeechType = listenSpeechType;
     this.lsitenSpeechTypeChanged.emit(listenSpeechType);
   }

@@ -8,6 +8,16 @@
     background-color: #FFFFFF;
 }
 
+.new-input-field {
+    height: 1.7rem;
+    width: 47vw; 
+    border:0px;
+    margin: 1rem;
+    font-size: 1.5rem;
+    color: #0D47A1;
+    background-color: #FFFFFF;
+}
+
 .search-box-container {
     border: 0.1rem solid #3E92D2;
     padding: 1rem;
@@ -15,7 +25,7 @@
     margin: 1rem auto;
     border-radius: 1rem;
     background-color: #FFFFFF;
-    width: 58vw;
+    width: 56vw;
 }
 
 .new-search-box {

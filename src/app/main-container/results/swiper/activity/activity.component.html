@@ -1,8 +1,15 @@
-<mat-card>
+<mat-card class="activity-container">
+  <div class="sub-heading">
+    <div class="title">
+      <mat-card-title>{{ activity.name }}</mat-card-title>
+    </div>
+    <div class="close">
+      <button class="close-btn" (click)="close()">x</button>
+    </div>
+  </div>
   <div class="activity-details">
     <div class="img">
       <img class="activity-img" src="{{activity.photoUrl}}"/>
-      <mat-card-title>{{ activity.name }}</mat-card-title>
     </div>
     <agm-map 
       [latitude]="activity.lattitude" 
@@ -11,11 +18,7 @@
         [latitude]="activity.lattitude" 
         [longitude]="activity.longitude">
       </agm-marker>
-    </agm-map>
-    
-    <div class="close">
-      <button class="close-btn" (click)="close()">x</button>
-    </div>  
+    </agm-map>  
   </div>
     <div class="contents">
       <div *ngIf="activity.address!=null">
@@ -29,10 +32,6 @@
       <div *ngIf="activity.website!=null">
         <mat-icon>public</mat-icon>
         {{activity.website}}
-      </div>
-      <div>
-        <h1>{{activity.weather.temperature}}</h1>
-        <img src="{{activity.weather.icon}}">
       </div>
       <div *ngIf="activity.openingHours!=null" class="opening">
         <mat-icon>access_time</mat-icon>

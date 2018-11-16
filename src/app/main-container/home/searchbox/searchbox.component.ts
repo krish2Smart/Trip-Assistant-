@@ -37,7 +37,7 @@ export class SearchboxComponent implements OnInit {
                     if ( this.cityResults.results[1].address_components[indexer1].types[indexer2] == 'locality')
                       this.city = this.cityResults.results[1].address_components[indexer1].long_name;
             }
-            
+            // console.log("city check",this.city);      
         });
       });
     }
@@ -59,7 +59,7 @@ export class SearchboxComponent implements OnInit {
         this.chatsService.addChat('user', this.final);
         this.tripassistantService.setShowSpinner(true);
         console.log('http://tripassistant-search-engine.ap-south-1.elasticbeanstalk.com/api/SearchResults?input=' + this.tripassistantService.getRequest() + ' ' + this.final + '&location=' + this.city);
-        let observable = this.http.get('http://172.16.14.35:50175/api/SearchResults?input=' + this.tripassistantService.getRequest() + ' ' + this.final + '&location=' + this.city); 
+        let observable = this.http.get('http://172.16.14.35:50175/api/SearchResults?input=' + this.tripassistantService.getRequest() + ' ' + this.final + '&location=Pune'); 
         observable.subscribe((response: Response) => {
             this.tripassistantService.setShowSpinner(false);
             this.response = response;
@@ -69,6 +69,7 @@ export class SearchboxComponent implements OnInit {
             this.tripassistantService.setRequest(this.response.request);
             this.tripassistantService.setActivities(this.response.activityList);
             this.tripassistantService.setHotels(this.response.hotelList);
+            this.tripassistantService.setCity(this.response.city);
             if( this.tripassistantService.getType() == 'request') {
                 this.chatsService.addChat( 'assistant' , this.tripassistantService.getResponse());
             }

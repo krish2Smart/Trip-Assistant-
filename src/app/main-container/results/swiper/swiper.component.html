@@ -41,9 +41,11 @@
   </ng-template>
 </div>
 
-<div *ngIf="selectedItem">
+<div *ngIf="isActivity()">
   <app-activity 
+    *ngIf="selectedItem"
     (onCloseItem)="onCloseItem($event)"  
-    [selectedItem]="selectedItem">
+    [selectedItem]="selectedItem"
+    [type]="type">
   </app-activity>
 </div>

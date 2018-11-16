@@ -1,24 +1,26 @@
+<app-weather></app-weather>
 <div class="swiper-container" *ngFor="let activity of activities">
     <div *ngIf="isActivityAvailable(activity.listActivity)">
         <app-speech-action-command 
             [type]="getType(activity.type)"
-            (onChangelistenType)="onChangeListenSpeechType($event)">
+            (click)="onChangeListenSpeechType(getType(activity.type))">
         </app-speech-action-command>
         <div class="swiper-title">{{getType(activity.type)}}</div>
         <app-swiper 
             [listenSpeechTypeChanged]="lsitenSpeechTypeChanged"
+            [type]="activity.type"
             [speechActionCommand]="getType(activity.type)" 
             [items]="activity.listActivity">
         </app-swiper>
     </div>
 </div>
 <div *ngIf="isHotelsAvailable()" class="swiper-container">
-    <app-speech-action-command 
+    <app-speech-action-command
         [type]="'hotels'"
-        (onChangelistenType)="onChangeListenSpeechType($event)">
+        (click)="onChangeListenSpeechType('hotels')">
     </app-speech-action-command>
     <div class="swiper-title">Hotels</div>
-    <app-swiper 
+    <app-swiper
         [listenSpeechTypeChanged]="lsitenSpeechTypeChanged"
         [speechActionCommand]="'hotels'"
         [items]="hotels">

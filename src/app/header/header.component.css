@@ -1,11 +1,25 @@
-.top-to-bottom .carousel-inner {
-  height: 100%;
+header {
+   display: block;
 }
 
+.top-to-bottom .carousel-inner {
+   height: 100%;
+}
+
+/* .back-btn {
+   float: left;
+   height: 3.5rem;
+   width: 5rem;
+   font-size: 1.5rem;
+   color: #FFFFFF;
+   cursor: pointer;
+} */
+
 .carousel {
-    background:#6BBDED;
-    text-align: center;
-    height: 20vh;
+   background:#6BBDED;
+   text-align: center;
+   height: 20vh;
+   font-size: 1.5vh;
 }
 
 .carousel.top-to-bottom .item {
@@ -21,11 +35,11 @@
 }
 
 .carousel.top-to-bottom .next {
-   top: -20vh;
+   top: -15vh;
 }
 
 .carousel.top-to-bottom .prev {
-   top: -20vh;
+   top: -15vh;
 }
 
 .carousel.top-to-bottom .item {
@@ -33,14 +47,14 @@
 }
 
 #my_text_slider {
-    text-transform:uppercase;
-    color:#FFFFFF;
-    font-size:5em;
-    height:180px;
-    font-family: 'Fjalla One';
+   text-transform:uppercase;
+   color:#FFFFFF;
+   font-size:5em;
+   height:180px;
+   font-family: 'Fjalla One';
 }
 
 .carousel-indicators {
-    margin-top: 1vh;
-    margin-bottom: 0;
+   margin-top: 1vh;
+   margin-bottom: 0;
 }

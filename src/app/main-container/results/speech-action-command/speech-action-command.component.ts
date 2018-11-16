@@ -17,10 +17,11 @@ import { SpeechRecogniserService } from 'src/app/services/speech-recogniser.serv
 })
 export class SpeechActionCommandComponent implements OnInit {
   @Input('type') command: string;
-  @Output('onChangelistenType') changeListenType = new EventEmitter<string>();
-  @ViewChild("scroll") MyProp: ElementRef;
 
-  constructor(private speechRecogniser: SpeechRecogniserService) { }
+  constructor(
+    private speechRecogniser: SpeechRecogniserService,
+    private speechActionCommandElement: ElementRef
+  ) { }
 
   ngOnInit() {
     this.speechRecogniser.transcriptChanged
@@ -28,15 +29,11 @@ export class SpeechActionCommandComponent implements OnInit {
         (speechCommand) => {
           console.log(speechCommand);
           if(this.command.toLowerCase() === speechCommand) {
-            this.MyProp.nativeElement.scrollIntoView({ behavior: "smooth", block: "start" });
-            this.MyProp.nativeElement.click();
+            this.speechActionCommandElement.nativeElement.scrollIntoView({ behavior: "smooth", block: "start" });
+            this.speechActionCommandElement.nativeElement.click();
           }
         }
       )
-  }
-
-  onClickListenType(): void {
-    this.changeListenType.emit(this.command);
   }
 
 }

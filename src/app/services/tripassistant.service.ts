@@ -11,6 +11,11 @@ export class TripAssistantService {
   private response: string;
   private responseQuery: string;
   private showSpinner: boolean = false;
+  private city: string;
+
+  setCity(city) {
+    this.city = city;
+  }
 
   setActivities(activities) {
     this.activities = activities;
@@ -38,6 +43,10 @@ export class TripAssistantService {
   
   setShowSpinner(showSpinner){
     this.showSpinner = showSpinner;
+  }
+
+  getCity() {
+    return this.city;
   }
 
   getActivities() {

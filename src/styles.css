@@ -5,7 +5,8 @@
     padding: 0px;
     margin: 0px;
     outline: none;
-    font-family: sans-serif Arial;
+    font-family: sans-serif;
+    font-weight: lighter;
 }
 
 body {

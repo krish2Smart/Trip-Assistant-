@@ -11,12 +11,5 @@ export class Activity {
         public phone: number,
         public openingHours: any,
         public currentOpening: any,
-        public weather:{
-            temperature: number,
-            wind: number,
-            humidity: number,
-            description: string,
-            icon: string
-        }
     ) {}
 }
